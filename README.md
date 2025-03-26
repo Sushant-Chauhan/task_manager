@@ -1,6 +1,6 @@
 # Task Management API
 
-## 📌 Project Overview
+## Project Overview
 This is a simple Task Management API built using **Django** and **Django REST Framework**. It allows users to:
 - Create tasks
 - Assign tasks to multiple users
@@ -19,6 +19,31 @@ POST /api/tasks/create/ - Create a Task
 POST /api/tasks/{id}/assign/ - Assign a Task
 GET /api/users/{user_id}/tasks/ - Retrieve Tasks for a User
 ```
+
+
+1. Create a Task
+Method: POST
+URL: http://127.0.0.1:8000/api/tasks/create/
+Test Data:
+{
+  "name": "Complete Backend Assignment",
+  "description": "Implement APIs using Django and DRF",
+  "task_type": "Development",
+  "status": "Pending"
+}
+
+
+2. Assign Users to a Task
+First need to make POST request and after creating users using the Django Admin Panel or using the API if created.
+Method: POST
+URL: http://127.0.0.1:8000/api/tasks/1/assign/
+Test Data:
+{
+  "user_ids": [1, 2]
+}
+
+
+
 
 
 ## Setup Instructions
