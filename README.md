@@ -22,6 +22,7 @@ GET /api/users/{user_id}/tasks/ - Retrieve Tasks for a User
 
 
 1. Create a Task
+```bash
 Method: POST
 URL: http://127.0.0.1:8000/api/tasks/create/
 Test Data:
@@ -31,20 +32,34 @@ Test Data:
   "task_type": "Development",
   "status": "Pending"
 }
-
+```
 
 2. Assign Users to a Task
-First need to make POST request and after creating users using the Django Admin Panel or using the API if created.
+after ensuring that users are created - using the Django Admin Panel.
+```bash
 Method: POST
 URL: http://127.0.0.1:8000/api/tasks/1/assign/
 Test Data:
 {
   "user_ids": [1, 2]
 }
+```
 
+3. Assign Users to Task Again
+Once you’ve confirmed users exist
+```bash
+Method: POST
+URL: http://127.0.0.1:8000/api/tasks/1/assign/
+TestData:
+{
+  "user_ids": [1, 2]
+}
+```
 
-
-
+Note : Create SuperAdmin
+```bash
+ python manage.py createsuperuser  
+```
 
 ## Setup Instructions
 
